@@ -1,11 +1,16 @@
 package cn.vcaml.vcatomcat.test;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.date.TimeInterval;
 import cn.vcaml.vcatomcat.util.MiniBrowser;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 
 
 public class TestTomcat {
@@ -20,7 +25,7 @@ public class TestTomcat {
             System.exit(1);
         }
         else {
-            System.out.println("检测到 diy tomcat已经启动，开始进行单元测试");
+            System.out.println("检测到 vcaml tomcat已经启动，开始进行单元测试");
         }
     }
 
@@ -35,6 +40,31 @@ public class TestTomcat {
     public void testaHtml() {
         String html = getContentString("/a.html");
         Assert.assertEquals(html,"Start to VcaTomcat form html");
+    }
+
+    @Test
+    public void testTimeConsumeHtml() throws InterruptedException {
+        //构建一个计数器 数量为3
+        CountDownLatch countDownLatch=new CountDownLatch(3);
+        TimeInterval timeInterval= DateUtil.timer();
+        for (int i = 0; i <3; i++) {
+            new Thread(()->{
+                try {
+                    String html= getContentString("/timeConsume.html");
+                    System.out.println(html);
+                    //　此函数将递减锁存器的计数，如果计数到达零，则释放所有等待的线程　
+                    countDownLatch.countDown();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            },"Thread "+i).start();
+        }
+        // await 此函数将会使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断
+        countDownLatch.await();
+        long duration=timeInterval.intervalMs();
+        System.out.println("一共耗时为："+duration);
+        //毫秒是一种较为微小的时间单位，符号为ms，1秒 =1000 毫秒
+        Assert.assertTrue(duration<3000);
     }
 
     private String getContentString(String uri) {
