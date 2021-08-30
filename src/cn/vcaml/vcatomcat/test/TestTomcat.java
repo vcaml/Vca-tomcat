@@ -39,7 +39,15 @@ public class TestTomcat {
     @Test
     public void testaHtml() {
         String html = getContentString("/a.html");
+        System.out.println(html);
         Assert.assertEquals(html,"Start to VcaTomcat form html");
+    }
+
+    @Test
+    public void testaIndex() {
+        String html = getContentString("/a/b/index.html");
+        System.out.println(html);
+        Assert.assertEquals(html,"Start to VcaTomcat form html from Folder-a-b index.html@a");
     }
 
     @Test

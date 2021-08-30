@@ -1,108 +1,218 @@
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server version:		vcaml vcaTomcat/1.0.1
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server built:		2020-04-08 10:20:22
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server number:		1.0.1
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Name	:		Windows 10
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Version:		10.0
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Architecture:		amd64
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Version:		1.8.0_201-b09
-08 28, 2021 17:09:40 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:45:28 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Vendor:		Oracle Corporation
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server version:		vcaml vcaTomcat/1.0.1
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server built:		2020-04-08 10:20:22
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server number:		1.0.1
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Name	:		Windows 10
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Version:		10.0
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Architecture:		amd64
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Version:		1.8.0_201-b09
-08 28, 2021 17:57:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:47:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Vendor:		Oracle Corporation
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server version:		vcaml vcaTomcat/1.0.1
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server built:		2020-04-08 10:20:22
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server number:		1.0.1
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Name	:		Windows 10
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Version:		10.0
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Architecture:		amd64
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Version:		1.8.0_201-b09
-08 28, 2021 21:03:08 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Vendor:		Oracle Corporation
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 0 ms
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 22:55:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 1 ms
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server version:		vcaml vcaTomcat/1.0.1
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server built:		2020-04-08 10:20:22
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server number:		1.0.1
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Name	:		Windows 10
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Version:		10.0
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Architecture:		amd64
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Version:		1.8.0_201-b09
-08 28, 2021 21:12:15 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:16:53 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Vendor:		Oracle Corporation
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:18:38 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 23:18:38 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 1 ms
+08 30, 2021 23:19:25 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 23:19:25 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 1 ms
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server version:		vcaml vcaTomcat/1.0.1
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server built:		2020-04-08 10:20:22
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server number:		1.0.1
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Name	:		Windows 10
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Version:		10.0
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Architecture:		amd64
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Version:		1.8.0_201-b09
-08 28, 2021 21:29:03 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Vendor:		Oracle Corporation
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 1 ms
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 23:25:46 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 0 ms
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server version:		vcaml vcaTomcat/1.0.1
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server built:		2020-04-08 10:20:22
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Server number:		1.0.1
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Name	:		Windows 10
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : OS Version:		10.0
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Architecture:		amd64
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Version:		1.8.0_201-b09
-08 28, 2021 21:42:00 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+08 30, 2021 23:30:31 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
 INFO : JVM Vendor:		Oracle Corporation
+08 30, 2021 23:30:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 23:30:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 1 ms
+08 30, 2021 23:30:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 23:30:58 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 1 ms
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server version:		vcaml vcaTomcat/1.0.1
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server built:		2020-04-08 10:20:22
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server number:		1.0.1
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : OS Name	:		Windows 10
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : OS Version:		10.0
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Architecture:		amd64
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : JVM Version:		1.8.0_201-b09
+08 30, 2021 23:31:13 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : JVM Vendor:		Oracle Corporation
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server version:		vcaml vcaTomcat/1.0.1
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server built:		2020-04-08 10:20:22
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server number:		1.0.1
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : OS Name	:		Windows 10
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : OS Version:		10.0
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Architecture:		amd64
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : JVM Version:		1.8.0_201-b09
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : JVM Vendor:		Oracle Corporation
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 0 ms
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 23:33:25 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 1 ms
+08 30, 2021 23:33:43 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 23:33:43 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 1 ms
+08 30, 2021 23:33:43 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 23:33:43 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 0 ms
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server version:		vcaml vcaTomcat/1.0.1
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server built:		2020-04-08 10:20:22
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Server number:		1.0.1
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : OS Name	:		Windows 10
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : OS Version:		10.0
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Architecture:		amd64
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : Java Home:		C:\Program Files\Java\jdk1.8.0_201\jre
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : JVM Version:		1.8.0_201-b09
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.Bootstrap logJVM
+INFO : JVM Vendor:		Oracle Corporation
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\a
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\a has finished in 1 ms
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deploying web application directory E:\project\VcaTomcat\webapps\ROOT
+08 30, 2021 23:33:57 下午 cn.vcaml.vcatomcat.catalina.Context <init>
+INFO : Deployment of web application directory E:\project\VcaTomcat\webapps\ROOT has finished in 0 ms

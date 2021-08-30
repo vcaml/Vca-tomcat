@@ -1,6 +1,8 @@
 package cn.vcaml.vcatomcat.http;
 
 import cn.hutool.core.util.StrUtil;
+import cn.vcaml.vcatomcat.Bootstrap;
+import cn.vcaml.vcatomcat.catalina.Context;
 import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 
 import java.io.*;
@@ -17,12 +19,16 @@ public class Request {
     private String requestString;
     private String uri;
     private Socket socket;
+    private Context context;
 
     public Request(Socket socket) throws IOException{
         this.socket = socket;
         parseHttpRequest();
         if(StrUtil.isEmpty(requestString)) return;
         parseUri();
+        parseContext();
+        if(!"/".equals(context.getPath()))
+            uri = StrUtil.removePrefix(uri, context.getPath());
 
     }
 
@@ -59,7 +65,7 @@ public class Request {
     private void parseUri() {
         String tempUri;
         //请求头格式为GET /index.html?name=gareen HTTP/1.1
-        //subBetween获取这俩个空格中间的数据=/index.html?name=gareen
+        //subBetween获取这俩个空格中间的数据：/index.html?name=gareen
         tempUri = StrUtil.subBetween(requestString, " ", " ");
         //检测是否带了参数
         if (!StrUtil.contains(tempUri, '?')) {
@@ -68,6 +74,22 @@ public class Request {
         }
         tempUri = StrUtil.subBefore(tempUri, '?', false);
         uri = tempUri;
+    }
+
+    private void parseContext() {
+        String path = StrUtil.subBetween(uri, "/", "/");
+        if (null == path)
+            path = "/";
+        else
+            path = "/" + path;
+
+        context = Bootstrap.contextMap.get(path);
+        if (null == context)
+            context = Bootstrap.contextMap.get("/");
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     public String getUri() {

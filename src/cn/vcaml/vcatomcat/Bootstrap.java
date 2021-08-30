@@ -4,6 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.log.LogFactory;
 import cn.hutool.system.SystemUtil;
+import cn.vcaml.vcatomcat.catalina.Context;
 import cn.vcaml.vcatomcat.http.Request;
 import cn.vcaml.vcatomcat.http.Response;
 import cn.vcaml.vcatomcat.http.ThreadPoolUtil;
@@ -20,6 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -27,9 +29,15 @@ import java.util.Set;
 //
 public class Bootstrap {
 
+    public static Map<String, Context> contextMap = new HashMap<>();
+
     public static void main(String[] args) {
-        logJVM();
+
         try {
+            logJVM();
+
+            scanContextsOnWebAppsFolder();
+
             int port = 18080;
             //在端口18080上启动 ServerSocket。 服务端和浏览器通信是通过 Socket进行通信的，所以这里需要启动一个 ServerSocket
             ServerSocket serverSocket = new ServerSocket(port);
@@ -48,14 +56,17 @@ public class Bootstrap {
                            String uri = request.getUri();
                            if(null==uri)
                                return;
+
+                           Context context = request.getContext();
+
                            if("/".equals(uri)) {
                                String html = "Start to VcaTomcat";
                                response.getWriter().println(html);
                            }else{
                                // 获取后缀文件名
-                               String fileName = StrUtil.removePrefix(uri, "/");
-                               //找指定文件夹去寻找文件
-                               File file = FileUtil.file(Constant.rootFolder,fileName);
+                               String fileName = StrUtil.removePrefix(uri, context.getPath());
+                               // 根据文件名 获取文件完整路径
+                               File file = FileUtil.file(context.getDocBase(),fileName);
                                if(file.exists()){
                                    String fileContent = FileUtil.readUtf8String(file);
                                    response.getWriter().println(fileContent);
@@ -81,6 +92,28 @@ public class Bootstrap {
             e.printStackTrace();
             LogFactory.get().error(e);
         }
+    }
+
+    private static void scanContextsOnWebAppsFolder() {
+        //用于扫描 webapps 文件夹下的目录，对这些目录调用 loadContext 进行加载。
+        File[] folders = Constant.webappsFolder.listFiles();
+        for (File folder : folders) {
+            if (!folder.isDirectory())
+                continue;
+            loadContext(folder);
+        }
+    }
+
+    private static void loadContext(File folder) {
+        String path = folder.getName();
+        if ("ROOT".equals(path))
+            path = "/";
+        else
+            path = "/" + path;
+        String docBase = folder.getAbsolutePath();
+        Context context = new Context(path,docBase);
+        //存入hashmap里面 key为路径 value为对象
+        contextMap.put(context.getPath(), context);
     }
 
 
