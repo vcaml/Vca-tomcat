@@ -112,7 +112,7 @@ public class MiniBrowser {
             pWriter.println(httpRequestString);
             InputStream is = client.getInputStream();
 
-            result = Request.readBytes(is);
+            result = Request.readBytes(is,true);
             client.close();
         } catch (Exception e) {
             e.printStackTrace();

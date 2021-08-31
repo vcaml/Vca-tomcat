@@ -43,13 +43,13 @@ public class Request {
     //解析http请求
     private void parseHttpRequest() throws IOException {
         InputStream inputStream = this.socket.getInputStream();
-        byte[] bytes =readBytes(inputStream);
+        byte[] bytes =readBytes(inputStream,false);
         //对这些字节数组用 UTF-8 字符集进行编码，得到我们要的字符串
         requestString = new String(bytes,"utf-8");
 
     }
     //读取socket中的流数据
-    public static byte[] readBytes(InputStream inputStream) throws IOException {
+    public static byte[] readBytes(InputStream inputStream,boolean fully) throws IOException {
         //准备一个预长度为1024的缓存
         int bufferSize = 1024;
         byte buffer[] = new byte[bufferSize];
@@ -63,7 +63,7 @@ public class Request {
             if(-1==length)
                 break;
             byteArrayOutputStream.write(buffer, 0, length);
-            if(length!=bufferSize)
+            if(!fully && length!=bufferSize)
                 break;
         }
         byte[] result =byteArrayOutputStream.toByteArray();

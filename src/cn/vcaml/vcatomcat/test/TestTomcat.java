@@ -2,6 +2,7 @@ package cn.vcaml.vcatomcat.test;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
+import cn.hutool.http.HttpUtil;
 import cn.vcaml.vcatomcat.util.MiniBrowser;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
@@ -9,6 +10,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
@@ -94,6 +96,16 @@ public class TestTomcat {
     public void test404() {
         String response  = getHttpString("/not_exist.html");
         containAssert(response, "HTTP/1.1 404 Not Found");
+    }
+
+    @Test
+    public void testPDF() {
+        String uri = "/etf.pdf";
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        HttpUtil.download(url, baos, true);
+        int pdfFileLength = 3590775;
+        Assert.assertEquals(pdfFileLength, baos.toByteArray().length);
     }
 
 
