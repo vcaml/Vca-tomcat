@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0908d5-c7df-412c-b207-e2ff5eb51c96" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/VcaTomcat/cn/vcaml/vcatomcat/catalina/Server$1.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/VcaTomcat/cn/vcaml/vcatomcat/catalina/HttpProcessor.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/HttpProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VcaTomcat/cn/vcaml/vcatomcat/catalina/Connector$1.class" afterPath="$PROJECT_DIR$/out/production/VcaTomcat/cn/vcaml/vcatomcat/catalina/Connector$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VcaTomcat/cn/vcaml/vcatomcat/catalina/Connector.class" afterPath="$PROJECT_DIR$/out/production/VcaTomcat/cn/vcaml/vcatomcat/catalina/Connector.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/server.xml" afterPath="$PROJECT_DIR$/conf/server.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/catalina" afterPath="$PROJECT_DIR$/logs/catalina" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Server.java" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Service.java" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/test/TestTomcat.java" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/test/TestTomcat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/util/ServerXMLUtil.java" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/util/ServerXMLUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java" afterPath="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,16 +50,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MiniBrowser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/util/MiniBrowser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestTomcat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/test/TestTomcat.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,13 +67,29 @@
       <file leaf-file-name="Connector.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2109">
-              <caret line="110" column="33" lean-forward="true" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+            <state relative-caret-position="528">
+              <caret line="49" column="17" lean-forward="false" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#start#0;class#Connector#0" expanded="false" />
                 <element signature="method#handle200#0;class#Connector#0" expanded="false" />
                 <element signature="method#handle404#0;class#Connector#0" expanded="false" />
                 <element signature="method#handle500#0;class#Connector#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/HttpProcessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#handle200#0;class#HttpProcessor#0" expanded="false" />
+                <element signature="method#handle404#0;class#HttpProcessor#0" expanded="false" />
+                <element signature="method#handle500#0;class#HttpProcessor#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -217,11 +220,12 @@
         <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/http/Request.java" />
         <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/util/MiniBrowser.java" />
         <option value="$PROJECT_DIR$/conf/server.xml" />
-        <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java" />
         <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/util/ServerXMLUtil.java" />
         <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Service.java" />
         <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Server.java" />
         <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/test/TestTomcat.java" />
+        <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/HttpProcessor.java" />
+        <option value="$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java" />
       </list>
     </option>
   </component>
@@ -585,7 +589,7 @@
       <workItem from="1630011656159" duration="858000" />
       <workItem from="1630012536896" duration="831000" />
       <workItem from="1630046710709" duration="39826000" />
-      <workItem from="1630221038066" duration="49885000" />
+      <workItem from="1630221038066" duration="51573000" />
     </task>
     <servers />
   </component>
@@ -598,9 +602,6 @@
     </history-entry>
     <history-entry file="TestTomcat_testHelloTomcat - 2021.08.31 at 16h 39m 12s.xml">
       <configuration name="TestTomcat.testHelloTomcat" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestTomcat_testaHtml - 2021.08.31 at 16h 39m 09s.xml">
-      <configuration name="TestTomcat.testaHtml" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TestTomcat_testaTxt - 2021.08.31 at 19h 31m 49s.xml">
       <configuration name="TestTomcat.testaTxt" configurationId="JUnit" />
@@ -620,9 +621,12 @@
     <history-entry file="TestTomcat_testbHtml - 2021.09.01 at 01h 06m 16s.xml">
       <configuration name="TestTomcat.testbHtml" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestTomcat_testbHtml - 2021.09.01 at 01h 31m 24s.xml">
+      <configuration name="TestTomcat.testbHtml" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91400000" />
+    <option name="totallyTimeSpent" value="93088000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -635,7 +639,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -646,7 +649,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25027934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25027934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -682,18 +685,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/http/ThreadPoolUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#741#742#0" expanded="false" />
-            <element signature="e#778#779#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/test/TestTomcat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1176">
@@ -1138,12 +1129,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java">
+    <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/HttpProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2109">
-          <caret line="110" column="33" lean-forward="true" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+        <state relative-caret-position="189">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#handle200#0;class#HttpProcessor#0" expanded="false" />
+            <element signature="method#handle404#0;class#HttpProcessor#0" expanded="false" />
+            <element signature="method#handle500#0;class#HttpProcessor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/vcaml/vcatomcat/catalina/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="49" column="17" lean-forward="false" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#start#0;class#Connector#0" expanded="false" />
             <element signature="method#handle200#0;class#Connector#0" expanded="false" />
             <element signature="method#handle404#0;class#Connector#0" expanded="false" />
             <element signature="method#handle500#0;class#Connector#0" expanded="false" />

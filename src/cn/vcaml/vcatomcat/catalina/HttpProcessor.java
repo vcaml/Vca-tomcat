@@ -7,65 +7,65 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
 import cn.vcaml.vcatomcat.http.Request;
 import cn.vcaml.vcatomcat.http.Response;
-import cn.vcaml.vcatomcat.http.ThreadPoolUtil;
 import cn.vcaml.vcatomcat.util.Constant;
 import cn.vcaml.vcatomcat.util.WebXMLUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Connector implements Runnable {
-
-    int port;
-    private Service service;
-    public Connector(Service service) { this.service = service; }
-
-    public Service getService() { return service; }
-
-    public void setPort(int port) { this.port = port; }
-
-    @Override
-    public void run() {
+public class HttpProcessor {
+    public void execute(Socket socket, Request request, Response response){
         try {
-            //在端口18080上启动 ServerSocket。 服务端和浏览器通信是通过 Socket进行通信的，所以这里需要启动一个 ServerSocket
-            ServerSocket serverSocket = new ServerSocket(port);
-
-            while (true) {
-                Socket socket = serverSocket.accept();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Request request = new Request(socket, service);
-                            Response response = new Response();
-                            HttpProcessor httpProcessor =new HttpProcessor();
-                            httpProcessor.execute(socket,request,response);
-                        }catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-                ThreadPoolUtil.run(runnable);
+            String uri = request.getUri();
+            if (null == uri)
+                return;
+            Context context = request.getContext();
+            if("/500.html".equals(uri)){
+                throw new RuntimeException("this is a deliberately created exception");
             }
+
+            if("/".equals(uri))
+                uri = WebXMLUtil.getWelcomeFile(request.getContext());
+
+            // 获取后缀文件名
+            String fileName = StrUtil.removePrefix(uri, context.getPath());
+            // 根据文件名 获取文件完整路径
+            File file = FileUtil.file(context.getDocBase(), fileName);
+
+            if (file.exists()) {
+                String extName = FileUtil.extName(file);
+                String mimeType = WebXMLUtil.getMimeType(extName);
+                response.setContentType(mimeType);
+
+//                                    String fileContent = FileUtil.readUtf8String(file);
+//                                    response.getWriter().println(fileContent);
+                byte body[] = FileUtil.readBytes(file);
+                response.setBody(body);
+
+                if (fileName.equals("timeConsume.html")) {
+                    //这里为了模仿耗时任务故意等1s
+                    ThreadUtil.sleep(1000);
+                }
+            } else {
+                handle404(socket, uri);
+                return;
+            }
+
+            handle200(socket, response);
         } catch (IOException e) {
-            e.printStackTrace();
             LogFactory.get().error(e);
+            handle500(socket,e);
+        } finally {
+            try {
+                if (!socket.isClosed())
+                    socket.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-
-    }
-
-    public void init() {
-        LogFactory.get().info("Initializing ProtocolHandler [http-bio-{}]",port);
-    }
-
-    //创建一个线程，以当前类为任务，启动运行，并打印 tomcat 风格的日志
-    public void start() {
-        LogFactory.get().info("Starting ProtocolHandler [http-bio-{}]",port);
-        new Thread(this).start();
     }
 
     private static void handle200(Socket s, Response response) throws IOException {
