@@ -37,17 +37,32 @@ public class TestTomcat {
     }
 
     @Test
-    public void testaHtml() {
-        String html = getContentString("/a.html");
+    public void testaTxt() {
+        String response  = getHttpString("/a.txt");
+        containAssert(response, "Content-Type: text/plain");
+    }
+
+
+    @Test
+    public void testbHtml() {
+        String html = getContentString("/a.txt");
         System.out.println(html);
         Assert.assertEquals(html,"Start to VcaTomcat form html");
     }
 
     @Test
-    public void testaIndex() {
-        String html = getContentString("/a/b/index.html");
+    public void testaHtml() {
+        String html = getContentString("/a/index.html");
         System.out.println(html);
-        Assert.assertEquals(html,"Start to VcaTomcat form html from Folder-a-b index.html@a");
+        Assert.assertEquals(html,"TEST:Start to VcaTomcat form html from Folder-a index.html@a");
+    }
+
+
+    @Test
+    public void testbIndex() {
+        String html = getContentString("/b/index.html");
+        System.out.println(html);
+        Assert.assertEquals(html,"TEST:Start to VcaTomcat form html from Folder-a-b index.html@a");
     }
 
     @Test
@@ -75,9 +90,28 @@ public class TestTomcat {
         Assert.assertTrue(duration<3000);
     }
 
+    @Test
+    public void test404() {
+        String response  = getHttpString("/not_exist.html");
+        containAssert(response, "HTTP/1.1 404 Not Found");
+    }
+
+
     private String getContentString(String uri) {
         String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        System.out.println("初始url"+url);
         String content = MiniBrowser.getContentString(url);
         return content;
+    }
+
+    private String getHttpString(String uri) {
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        String http = MiniBrowser.getHttpString(url);
+        return http;
+    }
+
+    private void containAssert(String html, String string) {
+        boolean match = StrUtil.containsAny(html, string);
+        Assert.assertTrue(match);
     }
 }

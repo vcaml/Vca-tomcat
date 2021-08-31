@@ -32,6 +32,7 @@ public class MiniBrowser {
     }
 
     public static String getContentString(String url, boolean gzip) {
+        System.out.println("url"+url);
         byte[] result = getContentBytes(url, gzip);
         if(null==result)
             return null;

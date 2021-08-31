@@ -1,8 +1,10 @@
 package cn.vcaml.vcatomcat.http;
 
 import cn.hutool.core.util.StrUtil;
-import cn.vcaml.vcatomcat.Bootstrap;
 import cn.vcaml.vcatomcat.catalina.Context;
+import cn.vcaml.vcatomcat.catalina.Engine;
+import cn.vcaml.vcatomcat.catalina.Host;
+import cn.vcaml.vcatomcat.catalina.Service;
 import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 
 import java.io.*;
@@ -20,16 +22,22 @@ public class Request {
     private String uri;
     private Socket socket;
     private Context context;
+    private Service service;
 
-    public Request(Socket socket) throws IOException{
+
+    public Request(Socket socket, Service service) throws IOException{
         this.socket = socket;
+        this.service = service;
         parseHttpRequest();
         if(StrUtil.isEmpty(requestString)) return;
         parseUri();
         parseContext();
-        if(!"/".equals(context.getPath()))
+        if (!"/".equals(context.getPath())) {
             uri = StrUtil.removePrefix(uri, context.getPath());
-
+            //访问的地址是 /a, 那么 uri就变成 "" 了，所以考虑这种情况， 让 uri 等于 "/"
+            if(StrUtil.isEmpty(uri))
+                uri = "/";
+        }
     }
 
     //解析http请求
@@ -77,15 +85,19 @@ public class Request {
     }
 
     private void parseContext() {
+        Engine engine = service.getEngine();
+        context = engine.getDefaultHost().getContext(uri);
+        if(null!=context)
+            return;
         String path = StrUtil.subBetween(uri, "/", "/");
         if (null == path)
             path = "/";
         else
             path = "/" + path;
 
-        context = Bootstrap.contextMap.get(path);
+        context = engine.getDefaultHost().getContext(path);
         if (null == context)
-            context = Bootstrap.contextMap.get("/");
+            context = engine.getDefaultHost().getContext("/");
     }
 
     public Context getContext() {
