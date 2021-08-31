@@ -1,9 +1,8 @@
 package cn.vcaml.vcatomcat.util;
 
+import cn.hutool.core.convert.Convert;
 import cn.hutool.core.io.FileUtil;
-import cn.vcaml.vcatomcat.catalina.Context;
-import cn.vcaml.vcatomcat.catalina.Engine;
-import cn.vcaml.vcatomcat.catalina.Host;
+import cn.vcaml.vcatomcat.catalina.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,6 +15,21 @@ import java.util.List;
 *这里引入了jsoup，用于解析和处理xml文件
 */
 public class ServerXMLUtil {
+
+    public static List<Connector> getConnectors(Service service) {
+        List<Connector> result = new ArrayList<>();
+        String xml = FileUtil.readUtf8String(Constant.serverXmlFile);
+        Document d = Jsoup.parse(xml);
+
+        Elements es = d.select("Connector");
+        for (Element e : es) {
+            int port = Convert.toInt(e.attr("port"));
+            Connector c = new Connector(service);
+            c.setPort(port);
+            result.add(c);
+        }
+        return result;
+    }
 
     public static List<Context> getContexts() {
         List<Context> resultList = new ArrayList<>();

@@ -16,7 +16,7 @@ import java.util.concurrent.CountDownLatch;
 
 
 public class TestTomcat {
-    private static int port = 18080;
+    private static int port = 18082;
     private static String ip = "127.0.0.1";
 
     @BeforeClass
@@ -49,7 +49,7 @@ public class TestTomcat {
     public void testbHtml() {
         String html = getContentString("/a.txt");
         System.out.println(html);
-        Assert.assertEquals(html,"Start to VcaTomcat form html");
+        Assert.assertEquals(html,"Start to VcaTomcat form a-txt");
     }
 
     @Test
