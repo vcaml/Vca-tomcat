@@ -3,12 +3,17 @@ package cn.vcaml.vcatomcat.http;
 import cn.hutool.core.util.StrUtil;
 import cn.vcaml.vcatomcat.catalina.Context;
 import cn.vcaml.vcatomcat.catalina.Engine;
-import cn.vcaml.vcatomcat.catalina.Host;
 import cn.vcaml.vcatomcat.catalina.Service;
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 
+import javax.servlet.*;
+import javax.servlet.http.*;
 import java.io.*;
 import java.net.Socket;
+import java.security.Principal;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.Locale;
+import java.util.Map;
 
 
 /*
@@ -16,14 +21,14 @@ import java.net.Socket;
 * 用于存储浏览器请求的主要信息
 * */
 
-public class Request {
+public class Request extends BaseRequest{
 
     private String requestString;
     private String uri;
     private Socket socket;
     private Context context;
     private Service service;
-
+    private String method;
 
     public Request(Socket socket, Service service) throws IOException{
         this.socket = socket;
@@ -32,12 +37,18 @@ public class Request {
         if(StrUtil.isEmpty(requestString)) return;
         parseUri();
         parseContext();
+        parseMethod();
         if (!"/".equals(context.getPath())) {
             uri = StrUtil.removePrefix(uri, context.getPath());
             //访问的地址是 /a, 那么 uri就变成 "" 了，所以考虑这种情况， 让 uri 等于 "/"
             if(StrUtil.isEmpty(uri))
                 uri = "/";
         }
+    }
+
+    //根据HTTP协议的格式 取第一个空格之前的数据：get/post
+    private void parseMethod() {
+        method = StrUtil.subBefore(requestString, " ", false);
     }
 
     //解析http请求
@@ -112,5 +123,8 @@ public class Request {
         return requestString;
     }
 
-
+    @Override
+    public String getMethod() {
+        return method;
+    }
 }

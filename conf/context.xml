@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--为什么web应用默认都是去 WEB-INF/web.xml 这里找配置信息？ 因为这个配置是定义在 conf/context.xml 文件里的-->
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+</Context>

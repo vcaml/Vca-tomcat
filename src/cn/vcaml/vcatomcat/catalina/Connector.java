@@ -68,60 +68,6 @@ public class Connector implements Runnable {
         new Thread(this).start();
     }
 
-    private static void handle200(Socket s, Response response) throws IOException {
-        String contentType = response.getContentType();
-        String headText = Constant.response_head_202;
-        headText = StrUtil.format(headText, contentType);
-        byte[] head = headText.getBytes();
-
-        byte[] body = response.getBody();
-
-        byte[] responseBytes = new byte[head.length + body.length];
-        ArrayUtil.copy(head, 0, responseBytes, 0, head.length);
-        ArrayUtil.copy(body, 0, responseBytes, head.length, body.length);
-
-        OutputStream os = s.getOutputStream();
-        os.write(responseBytes);
-    }
-
-    protected void handle404(Socket s, String uri) throws IOException {
-        OutputStream os = s.getOutputStream();
-        String responseText = StrUtil.format(Constant.textFormat_404, uri, uri);
-        responseText = Constant.response_head_404 + responseText;
-        byte[] responseByte = responseText.getBytes("utf-8");
-        os.write(responseByte);
-    }
-
-    protected void handle500(Socket s, Exception e) {
-        try {
-            OutputStream os = s.getOutputStream();
-            // 拿到 Exception 的异常堆栈，比如平时我们看到一个报错，
-            // 都会打印最哪个类的哪个方法，依次调用过来的信息。
-            // 这个信息就放在这个 StackTrace里，
-            // 是个 StackTraceElement 数组。
-            StackTraceElement stes[] = e.getStackTrace();
-            StringBuffer sb = new StringBuffer();
-            sb.append(e.toString());
-            sb.append("\r\n");
-            for (StackTraceElement ste : stes) {
-                sb.append("\t");
-                sb.append(ste.toString());
-                sb.append("\r\n");
-            }
-
-            String msg = e.getMessage();
-
-            if (null != msg && msg.length() > 20)
-                msg = msg.substring(0, 19);
-
-            String text = StrUtil.format(Constant.textFormat_500, msg, e.toString(), sb.toString());
-            text = Constant.response_head_500 + text;
-            byte[] responseBytes = text.getBytes("utf-8");
-            os.write(responseBytes);
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-    }
 
 
 

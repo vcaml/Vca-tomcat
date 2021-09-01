@@ -3,12 +3,16 @@ package cn.vcaml.vcatomcat.catalina;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.ArrayUtil;
+import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
 import cn.vcaml.vcatomcat.http.Request;
 import cn.vcaml.vcatomcat.http.Response;
+import cn.vcaml.vcatomcat.servlets.DefaultServlet;
+import cn.vcaml.vcatomcat.servlets.InvokerServlet;
 import cn.vcaml.vcatomcat.util.Constant;
 import cn.vcaml.vcatomcat.util.WebXMLUtil;
+import cn.vcaml.vcatomcat.webappservlet.HelloServlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,41 +26,26 @@ public class HttpProcessor {
             if (null == uri)
                 return;
             Context context = request.getContext();
-            if("/500.html".equals(uri)){
-                throw new RuntimeException("this is a deliberately created exception");
+            String servletClassName = context.getServletClassName(uri);
+
+            if(null!=servletClassName)
+                InvokerServlet.getInstance().service(request,response);
+            else
+                DefaultServlet.getInstance().service(request,response);
+
+            if(Constant.CODE_200 == response.getStatus()){
+                handle200(socket, response);
+                return;
             }
-
-            if("/".equals(uri))
-                uri = WebXMLUtil.getWelcomeFile(request.getContext());
-
-            // 获取后缀文件名
-            String fileName = StrUtil.removePrefix(uri, context.getPath());
-            // 根据文件名 获取文件完整路径
-            File file = FileUtil.file(context.getDocBase(), fileName);
-
-            if (file.exists()) {
-                String extName = FileUtil.extName(file);
-                String mimeType = WebXMLUtil.getMimeType(extName);
-                response.setContentType(mimeType);
-
-//                                    String fileContent = FileUtil.readUtf8String(file);
-//                                    response.getWriter().println(fileContent);
-                byte body[] = FileUtil.readBytes(file);
-                response.setBody(body);
-
-                if (fileName.equals("timeConsume.html")) {
-                    //这里为了模仿耗时任务故意等1s
-                    ThreadUtil.sleep(1000);
-                }
-            } else {
+            if(Constant.CODE_404 == response.getStatus()){
                 handle404(socket, uri);
                 return;
             }
 
-            handle200(socket, response);
-        } catch (IOException e) {
+        } catch (Exception e) {
             LogFactory.get().error(e);
             handle500(socket,e);
+
         } finally {
             try {
                 if (!socket.isClosed())
@@ -67,7 +56,6 @@ public class HttpProcessor {
             }
         }
     }
-
     private static void handle200(Socket s, Response response) throws IOException {
         String contentType = response.getContentType();
         String headText = Constant.response_head_202;
