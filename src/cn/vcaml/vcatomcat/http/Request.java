@@ -5,15 +5,9 @@ import cn.vcaml.vcatomcat.catalina.Context;
 import cn.vcaml.vcatomcat.catalina.Engine;
 import cn.vcaml.vcatomcat.catalina.Service;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+
 import java.io.*;
 import java.net.Socket;
-import java.security.Principal;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.Map;
 
 
 /*
