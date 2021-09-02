@@ -5,8 +5,10 @@ import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
+import cn.vcaml.vcatomcat.classloader.WebappClassLoader;
 import cn.vcaml.vcatomcat.exception.WebConfigDuplicatedException;
 import cn.vcaml.vcatomcat.util.ContextXMLUtil;
+import cn.vcaml.vcatomcat.watcher.ContextFileChangeWatcher;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -25,6 +27,10 @@ public class Context {
     private String docBase;
     private File contextWebXmlFile;
 
+    private Host host;
+    private boolean reloadable;
+    private ContextFileChangeWatcher contextFileChangeWatcher;
+
     /*
     *servlet 的映射， 有4个。
      1. 地址对应 Servlet 的类名
@@ -37,7 +43,14 @@ public class Context {
     private Map<String, String> servletName_className;
     private Map<String, String> className_servletName;
 
-    public Context(String path, String docBase) {
+    private WebappClassLoader webappClassLoader;
+
+    public Context(String path, String docBase, Host host, boolean reloadable) {
+        TimeInterval timeInterval = DateUtil.timer();
+
+        this.host = host;
+        this.reloadable = reloadable;
+
         this.path = path;
         this.docBase = docBase;
         this.contextWebXmlFile = new File(docBase, ContextXMLUtil.getWatchedResource());
@@ -46,7 +59,17 @@ public class Context {
         this.servletName_className = new HashMap<>();
         this.className_servletName = new HashMap<>();
 
+        //取到commonClassLoader之后 作为 WebappClassLoader 父类存在。
+        ClassLoader commonClassLoader = Thread.currentThread().getContextClassLoader();
+        this.webappClassLoader = new WebappClassLoader(docBase, commonClassLoader);
+
+        LogFactory.get().info("Deploying web application directory {}", this.docBase);
         deploy();
+        LogFactory.get().info("Deployment of web application directory {} has finished in {} ms", this.docBase,timeInterval.intervalMs());
+    }
+
+    public void reload() {
+        host.reload(this);
     }
 
     private void deploy() {
@@ -54,6 +77,11 @@ public class Context {
         LogFactory.get().info("Deploying web application directory {}", this.docBase);
         init();
         LogFactory.get().info("Deployment of web application directory {} has finished in {} ms",this.getDocBase(),timeInterval.intervalMs());
+
+        if(reloadable){
+            contextFileChangeWatcher = new ContextFileChangeWatcher(this);
+            contextFileChangeWatcher.start();
+        }
     }
 
     private void init() {
@@ -145,4 +173,19 @@ public class Context {
     public void setDocBase(String docBase) {
         this.docBase = docBase;
     }
+
+    public WebappClassLoader getWebappClassLoader() {
+        return webappClassLoader;
+    }
+    public boolean isReloadable() {
+        return reloadable;
+    }
+    public void setReloadable(boolean reloadable) {
+        this.reloadable = reloadable;
+    }
+    public void stop() {
+        webappClassLoader.stop();
+        contextFileChangeWatcher.stop();
+    }
+
 }

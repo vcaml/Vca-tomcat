@@ -35,15 +35,17 @@ public class InvokerServlet extends HttpServlet {
         String uri = request.getUri();
         Context context = request.getContext();
         String servletClassName = context.getServletClassName(uri);
-        System.out.println("name2:"+servletClassName);
-        Object servletObject = ReflectUtil.newInstance(servletClassName);
-        ReflectUtil.invoke(servletObject, "service", request, response);
+        try {
+            Class servletClass = context.getWebappClassLoader().loadClass(servletClassName);
+            System.out.println("servletClass:" + servletClass);
+            System.out.println("servletClass'classLoader:" + servletClass.getClassLoader());
 
-        //因为目标 servlet 实现了 HttpServlet ,所以一定提供了 service 方法。
-        // 这个 service 方法实会根据 request 的 Method ，访问对应的 doGet 或者 doPost。
-
-        //表示返回成功
-        response.setStatus(Constant.CODE_200);
+            Object servletObject = ReflectUtil.newInstance(servletClass);
+            ReflectUtil.invoke(servletObject, "service", request, response);
+            response.setStatus(Constant.CODE_200);
+        }catch (ClassNotFoundException e){
+            throw new RuntimeException(e);
+        }
     }
 
 }

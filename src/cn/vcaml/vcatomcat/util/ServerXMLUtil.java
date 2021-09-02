@@ -31,7 +31,7 @@ public class ServerXMLUtil {
         return result;
     }
 
-    public static List<Context> getContexts() {
+    public static List<Context> getContexts(Host host) {
         List<Context> resultList = new ArrayList<>();
         //获取 server.xml 的内容
         String xml = FileUtil.readUtf8String(Constant.serverXmlFile);
@@ -45,7 +45,8 @@ public class ServerXMLUtil {
         for (Element e : elements) {
             String path = e.attr("path");
             String docBase = e.attr("docBase");
-            Context context = new Context(path, docBase);
+            boolean reloadable = Convert.toBool(e.attr("reloadable"), true);
+            Context context = new Context(path, docBase, host, reloadable);
             resultList.add(context);
         }
         return resultList;

@@ -7,7 +7,8 @@
         <Engine defaultHost="localhost">
          <!--本项目暂时只支持单host   -->
           <Host name = "localhost">
-           <Context path="/b" docBase="e:/project/diytomcat/b" />
+              <Context path="/b" docBase="e:/project/Vcatomcat/b" />
+              <Context path="/javaweb" docBase="e:/project/javaweb/web" reloadable = "true"/>
           </Host>
         </Engine>
     </Service>
