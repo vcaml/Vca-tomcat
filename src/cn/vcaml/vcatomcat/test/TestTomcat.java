@@ -2,6 +2,7 @@ package cn.vcaml.vcatomcat.test;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
+import cn.hutool.core.io.IoUtil;
 import cn.hutool.http.HttpUtil;
 import cn.vcaml.vcatomcat.util.MiniBrowser;
 import cn.hutool.core.util.NetUtil;
@@ -12,6 +13,11 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -121,6 +127,71 @@ public class TestTomcat {
         Assert.assertEquals(pdfFileLength, baos.toByteArray().length);
     }
 
+    @Test
+    public void testgetParam() {
+        String uri = "/javaweb/param";
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        Map<String,Object> params = new HashMap<>();
+        params.put("name","meepo");
+        String html = MiniBrowser.getContentString(url, params, true);
+        System.out.println("url"+html);
+        Assert.assertEquals(html,"get name:meepo");
+    }
+    @Test
+    public void testpostParam() {
+        String uri = "/javaweb/param";
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        Map<String,Object> params = new HashMap<>();
+        params.put("name","meepo");
+        String html = MiniBrowser.getContentString(url, params, false);
+        Assert.assertEquals(html,"post name:meepo");
+
+    }
+
+    @Test
+    public void testsetCookie() {
+        String html = getHttpString("/javaweb/setCookie");
+        containAssert(html,"Set-Cookie: name=Gareen(cookie); Expires=");
+    }
+
+    @Test
+    public void testheader() {
+        String html = getContentString("/javaweb/header");
+        Assert.assertEquals(html,"vcaml mini brower / java1.8");
+    }
+
+    @Test
+    public void testgetCookie() throws IOException {
+        String url = StrUtil.format("http://{}:{}{}", ip,port,"/javaweb/getCookie");
+        URL u = new URL(url);
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+        conn.setRequestProperty("Cookie","name=webToService(cookie)");
+        conn.connect();
+        InputStream is = conn.getInputStream();
+        String html = IoUtil.read(is, "utf-8");
+        containAssert(html,"name:webToService(cookie)");
+    }
+
+
+    /*
+      先通过访问 setSession，设置 name_in_session, 并且得到 jsessionid,
+      然后 把 jsessionid 作为 Cookie 的值提交到 getSession，就获取了session 中的数据了。
+      因为暂时只支持http 所以请用非谷歌浏览器测试
+     */
+    @Test
+    public void testSession() throws IOException {
+        String jsessionid = getContentString("/javaweb/setSession");
+        if(null!=jsessionid)
+            jsessionid = jsessionid.trim();
+        String url = StrUtil.format("http://{}:{}{}", ip,port,"/javaweb/getSession");
+        URL u = new URL(url);
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+        conn.setRequestProperty("Cookie","JSESSIONID="+jsessionid);
+        conn.connect();
+        InputStream is = conn.getInputStream();
+        String html = IoUtil.read(is, "utf-8");
+        containAssert(html,"Gareen(session)");
+    }
 
     private String getContentString(String uri) {
         String url = StrUtil.format("http://{}:{}{}", ip,port,uri);

@@ -1,5 +1,4 @@
 package cn.vcaml.vcatomcat;
-import cn.vcaml.vcatomcat.catalina.Server;
 import cn.vcaml.vcatomcat.classloader.CommonClassLoader;
 
 import java.lang.reflect.Method;
@@ -23,6 +22,7 @@ public class Bootstrap {
 
         // 不能关闭，否则后续就不能使用啦
         // commonClassLoader.close();
+        System.out.println(serverClazz.getClassLoader());
     }
 
 }

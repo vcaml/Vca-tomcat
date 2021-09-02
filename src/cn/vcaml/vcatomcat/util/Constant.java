@@ -11,9 +11,10 @@ public class Constant {
     public static final int CODE_404 = 404;
     public static final int CODE_500 = 500;
 
-    public final static String response_head_202 =
-            "HTTP/1.1 200 OK\r\n"+
-            "Content-Type: {}\r\n\r\n";
+    public static final String response_head_202 =
+            "HTTP/1.1 200 OK\r\n" +
+                    "Content-Type: {}{}" +
+                    "\r\n\r\n";
 
     public static final String response_head_404 =
             "HTTP/1.1 404 Not Found\r\n" +

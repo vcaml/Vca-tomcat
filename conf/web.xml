@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
     <mime-mapping>
         <extension>123</extension>
         <mime-type>application/vnd.lotus-1-2-3</mime-type>

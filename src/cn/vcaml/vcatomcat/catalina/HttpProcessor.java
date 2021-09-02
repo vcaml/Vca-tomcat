@@ -11,9 +11,11 @@ import cn.vcaml.vcatomcat.http.Response;
 import cn.vcaml.vcatomcat.servlets.DefaultServlet;
 import cn.vcaml.vcatomcat.servlets.InvokerServlet;
 import cn.vcaml.vcatomcat.util.Constant;
+import cn.vcaml.vcatomcat.util.SessionManager;
 import cn.vcaml.vcatomcat.util.WebXMLUtil;
 import cn.vcaml.vcatomcat.webappservlet.HelloServlet;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -25,6 +27,9 @@ public class HttpProcessor {
             String uri = request.getUri();
             if (null == uri)
                 return;
+            //准备session, 先通过 cookie拿到 jsessionid, 然后通过 SessionManager 创建 session, 并且设置在 requeset 上
+            prepareSession(request, response);
+
             Context context = request.getContext();
             String servletClassName = context.getServletClassName(uri);
             System.out.println("name1:"+servletClassName);
@@ -109,6 +114,12 @@ public class HttpProcessor {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    public void prepareSession(Request request, Response response) {
+        String jsessionid = request.getJSessionIdFromCookie();
+        HttpSession session = SessionManager.getSession(jsessionid, request, response);
+        request.setSession(session);
     }
 
 
